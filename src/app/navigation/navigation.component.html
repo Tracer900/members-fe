@@ -1,1 +1,9 @@
-<p>navigation works!</p>
+<nav>
+  <ul>
+    <li *ngIf = "!arInloggad"><a routerLink = "/login">Ingman Dev</a></li>
+    <li *ngIf = "!arInloggad"><a routerLink = "/medlemsprofil"></a>Medlemsprofil</li>
+    <li *ngIf = "!arAdmin"><a routerLink = "/medlemsadministration"></a>Medlemsadministration</li>
+    <li *ngIf = "!arInloggad"><a routerLink = "/login"></a>Logga in</li>
+    <li *ngIf = "!arInloggad"><a routerLink = "" (click)="logout()" )></a>Logga ut</li>
+  </ul>
+</nav>

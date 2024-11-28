@@ -115,4 +115,28 @@ export class MedlemService {
     }
     return false;
   }
+
+  arMedlem(): boolean {
+    if(typeof localStorage !== 'undefined') {
+      const roll = localStorage.getItem('roll');
+      return roll === 'MEDLEM'
+    }
+    return false;
+  }
+
+  arStyrelsemedlem(): boolean {
+    if(typeof localStorage !== 'undefined') {
+      const roll = localStorage.getItem('roll');
+      return roll === 'STYRELSEMEDLEM'
+    }
+    return false;
+  }
+
+  arAdmin(): boolean {
+    if(typeof localStorage !== 'undefined') {
+      const roll = localStorage.getItem('roll');
+      return roll === 'ADMIN'
+    }
+    return false;
+  }
 }
