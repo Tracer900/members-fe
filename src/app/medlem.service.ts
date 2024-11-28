@@ -11,7 +11,7 @@ export class MedlemService {
 
   constructor(private http: HttpClient) { }
 
-  async login(epost: string, password: string): Promise<any>{
+  async loggaIn(epost: string, password: string): Promise<any>{
     const url = `${this.baseUrl}/auth/login`;
     try{
       const response = await this.http.post<any>(url, {epost, password}).toPromise();
@@ -101,7 +101,7 @@ export class MedlemService {
 
   /*Autentisering*/
 
-  logOut(): void {
+  loggaUt(): void {
     if(typeof localStorage !== 'undefined') {
       localStorage.removeItem('token');
       localStorage.removeItem('roll');
