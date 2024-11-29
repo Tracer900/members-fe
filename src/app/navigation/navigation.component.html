@@ -1,7 +1,7 @@
 <nav>
   <ul>
     <li *ngIf = "!arInloggad"><a routerLink = "/login">Ingman Dev</a></li>
-    <li *ngIf = "arInloggad"><a routerLink = "/medlemsprofil">Medlemsprofil</a></li>
+    <li *ngIf = "arInloggad"><a routerLink = "/profilinfo">Medlemsprofil</a></li>
     <li *ngIf = "arAdmin"><a routerLink = "/medlemsadministration">Medlemsadministration</a></li>
     <li *ngIf = "!arInloggad"><a routerLink = "/login">Logga in</a></li>
     <li *ngIf = "arInloggad"><a routerLink = "" (click)="loggaUt()">Logga ut</a></li>

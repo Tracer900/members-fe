@@ -20,7 +20,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   }
 };
 
-export const adminGuard: CanActivateFn = (route, state) => {
+export const styrelseMedlemGuard: CanActivateFn = (route, state) => {
   if(inject(MedlemService).arStyrelsemedlem()) {
     return true;
   } else {

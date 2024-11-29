@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { MedlemService } from '../medlem.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,13 @@ import { MedlemService } from '../medlem.service';
 })
 export class LoginComponent {
 
-  constructor(private readonly medlemServie: MedlemService) {
-  }
+  constructor(
+    private readonly medlemServie: MedlemService,
+    private router: Router) {}
 
   epost: string = '';
   password: string = '';
-  errorMeddelande: string = '';
+  errorMessage: string = '';
 
   async hanteraSubmit() {
 
@@ -27,7 +29,14 @@ export class LoginComponent {
     }
 
     try {
-      const bulle = '';
+      const response = await this.medlemServie.loggaIn(this.epost, this.password);
+      if(response.statusCode === 200) {
+        localStorage.setItem('token', response.token)
+        localStorage.setItem('roll', response.role)
+        this.router.navigate(['/medlemsprofil'])
+      } else {
+        this.showError(response.meddelande)
+      }
 
     } catch(error: any) {
       this.showError(error.message)
@@ -36,9 +45,9 @@ export class LoginComponent {
   }
 
   showError(mess: string) {
-    this.errorMeddelande = mess;
+    this.errorMessage = mess;
     setTimeout(() => {
-      this.errorMeddelande = ''
+      this.errorMessage = ''
     }, 3000)
   }
 }

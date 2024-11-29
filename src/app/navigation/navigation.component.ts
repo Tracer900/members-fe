@@ -6,9 +6,9 @@ import {MedlemService} from '../medlem.service';
 @Component({
   selector: 'app-navigation',
   imports: [
+    CommonModule,
     RouterOutlet,
-    RouterLink,
-    CommonModule
+    RouterLink
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'

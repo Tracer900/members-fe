@@ -1,13 +1,14 @@
 <div class="container">
   <h2>Logga in</h2>
-  <p *ngif="errorMeddelande" class="error-meddelande">{{errorMeddelande}}</p>
+  <p *ngIf="errorMessage" class="error-meddelande">{{errorMessage}}</p>
   <form (submit)="hanteraSubmit()">
     <div class="form-group">
-      <label for="">E-post: </label>
+      <label>E-post: </label>
       <input type="text" [(ngModel)]="epost" name="epost">
     </div>
+
     <div class="form-group">
-      <label for="">Lösenord: </label>
+      <label>Lösenord: </label>
       <input type="password" [(ngModel)]="password" name="password">
     </div>
     <button type="submit">Logga in</button>
